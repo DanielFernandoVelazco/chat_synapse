@@ -23,7 +23,7 @@ import { TypeOrmConfigService } from './config/typeorm.config';
 
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'uploads'),
-                              serveRoot: '/uploads',
+      serveRoot: '/uploads',
     }),
     AuthModule,
     UserModule,
@@ -33,4 +33,4 @@ import { TypeOrmConfigService } from './config/typeorm.config';
   controllers: [],
   providers: [],
 })
-export class AppModule {}
+export class AppModule { }

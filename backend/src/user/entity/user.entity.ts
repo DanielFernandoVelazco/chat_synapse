@@ -1,4 +1,4 @@
-import { Message } from 'src/message/message.entity';
+import { Message } from 'src/message/entity/message.entity';
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 
 @Entity()
