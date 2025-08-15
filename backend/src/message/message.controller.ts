@@ -2,7 +2,7 @@ import { Controller, Post, UploadedFile, UseInterceptors, UseGuards, Get, Param,
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import { extname } from 'path';
-import { JwtAuthGuard } from 'src/auth/jwt-auth.guard';
+import { JwtAuthGuard } from 'src/auth/jwt/jwt-auth.guard';
 import { MessageService } from './message.service';
 
 @UseGuards(JwtAuthGuard)
