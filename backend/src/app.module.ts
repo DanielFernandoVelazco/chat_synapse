@@ -1,34 +1,34 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
+import { UserModule } from './user/user.module';
 import { ChatModule } from './chat/chat.module';
-import { FilesModule } from './files/files.module';
-import { User } from './entities/user.entity';
-import { Chat } from './entities/chat.entity';
-import { Message } from './entities/message.entity';
+import { MessageModule } from './message/message.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
+import { ConfigModule } from './config/config.module';
+import { TypeOrmConfigService } from './config/typeorm.config';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      isGlobal: true, // Hace que las variables de entorno estén disponibles globalmente
+    // Nuestro nuevo módulo de configuración centralizado
+    ConfigModule,
+
+    // TypeOrmModule ahora usa la clase de configuración
+    TypeOrmModule.forRootAsync({
+      imports: [ConfigModule],
+      useClass: TypeOrmConfigService,
+      inject: [TypeOrmConfigService],
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT),
-                          username: process.env.DB_USERNAME,
-                          password: process.env.DB_PASSWORD,
-                          database: process.env.DB_NAME,
-                          entities: [User, Chat, Message],
-                          synchronize: true, // ¡Solo usar en desarrollo! En producción, usa migraciones.
-                          logging: false,
+
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'),
+                              serveRoot: '/uploads',
     }),
     AuthModule,
-    UsersModule,
+    UserModule,
     ChatModule,
-    FilesModule,
+    MessageModule,
   ],
   controllers: [],
   providers: [],
