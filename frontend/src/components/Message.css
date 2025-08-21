@@ -1,0 +1,31 @@
+.message-bubble {
+  padding: 8px 12px;
+  border-radius: 8px;
+  max-width: 70%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message-bubble.self {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  color: #000;
+}
+
+.message-bubble.other {
+  background-color: #fff;
+  align-self: flex-start;
+  color: #000;
+}
+
+.message-bubble p {
+  margin: 0 0 5px 0;
+  word-wrap: break-word;
+}
+
+.message-bubble span {
+  font-size: 0.7rem;
+  color: #777;
+  align-self: flex-end;
+}
