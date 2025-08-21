@@ -1,0 +1,32 @@
+.sidebar {
+  width: 350px;
+  border-right: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  color: #075e54;
+}
+
+.sidebar-search {
+  padding: 10px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar-search input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-sizing: border-box;
+  background-color: #f0f2f5;
+  outline: none;
+}
