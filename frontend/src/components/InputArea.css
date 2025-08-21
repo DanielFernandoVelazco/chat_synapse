@@ -1,0 +1,26 @@
+.input-area {
+  display: flex;
+  padding: 10px 20px;
+  background-color: #f0f2f5;
+  border-top: 1px solid #ddd;
+}
+
+.input-area input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  outline: none;
+  font-size: 1rem;
+}
+
+.send-button, .audio-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.send-button svg, .audio-button svg {
+  color: #075e54;
+}
